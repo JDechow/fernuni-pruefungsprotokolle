@@ -59,10 +59,18 @@ Neue Regeln dazu um neue Routen zu definieren.
 WEP Verschluesselung IV 11bit lang bekannt, 7bit vom WEP Schluessel auch bekannt.
 Angreifer kann in 45 Minuten den WEP Schluessel knacken.
 Der Angreifer schafft pro Minute 4^(3x+2) Schluessel zu testen.
-Ein Tag ist der Einfachheit halber 2^16 Minuten lang.
+Ein Tag ist der Einfachheit halber 2^16 Sekunden (korr. JD Minuten) lang.
 Welcher Wert ist x?
 
-> Loesungsvorschlag (ich habe keinen)
+> Loesungsvorschlag JD:
+45 Minuten sind 1/24 * 3/4 * 2^16 Sekunden = 1/32 * 2^16 Sekunden = 2^(-5) * 2^16 Sekunden = 2^11 Sekunden.
+
+Unbekannt sind: beim IV: 24-11=13 Bit; beim Schlüssel: 48-7=41 Bit.
+Im Mittel müssen also 13+41-1 Bit = 53 Bit oder 2^53 Schlüssel ausgetestet werden.
+
+2^53  /  4^(3x+2)  = 2^11 <=> 2^53 / 2^(2*(3x+2)) = 2^11 => 53 - 2*(3x+2) = 11
+
+=> 21 = 3x+2 => x = 19/3
 
 
 ## Unsortierte Fragen, Aufgabenzuordnung vergessen
